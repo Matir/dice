@@ -81,12 +81,12 @@ func main() {
 	numWords := uint32(6)
 	wordlist, err := LoadWordlist("eff_large_wordlist.txt")
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error loading wordlist: %s", err.Error())
+		fmt.Fprintf(os.Stderr, "Error loading wordlist: %s\n", err.Error())
 		return
 	}
 	if len(os.Args) > 1 {
 		if argNumWords, err := strconv.ParseUint(os.Args[2], 10, 32); err != nil {
-			fmt.Fprintf(os.Stderr, "Error parsing argument: %s", err.Error())
+			fmt.Fprintf(os.Stderr, "Error parsing argument: %s\n", err.Error())
 			return
 		} else {
 			numWords = uint32(argNumWords)
