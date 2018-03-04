@@ -79,7 +79,7 @@ func GetRandUInt(max uint32) uint32 {
 
 func main() {
 	numWords := uint32(6)
-	wordlist, err := LoadWordlist("eff_large_wordlist.txt")
+	wordlist, err := readWordlist(strings.NewReader(eff_wordlist))
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error loading wordlist: %s\n", err.Error())
 		return
