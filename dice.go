@@ -85,7 +85,7 @@ func main() {
 		return
 	}
 	if len(os.Args) > 1 {
-		if argNumWords, err := strconv.ParseUint(os.Args[2], 10, 32); err != nil {
+		if argNumWords, err := strconv.ParseUint(os.Args[1], 10, 32); err != nil {
 			fmt.Fprintf(os.Stderr, "Error parsing argument: %s\n", err.Error())
 			return
 		} else {
@@ -100,7 +100,7 @@ func main() {
 		if !ok {
 			fmt.Fprintf(os.Stderr, "WTF, no word %d\n", idx)
 		}
-		fmt.Printf("%05d: %s\n", idx, word)
+		// fmt.Printf("%05d: %s\n", idx, word)
 		outwords = append(outwords, word)
 	}
 	fmt.Printf("%s\n", strings.Join(outwords, " "))
