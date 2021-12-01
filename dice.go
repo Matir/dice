@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:generate /bin/sh -c "(echo 'package main\n\nvar eff_wordlist=`'; cat eff_large_wordlist.txt; echo '`') > wordlist.go"
+
 package main
 
 import (
