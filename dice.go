@@ -43,7 +43,11 @@ func readWordlist(r io.Reader) (Wordlist, error) {
 	scanner := bufio.NewScanner(r)
 	results := make(Wordlist)
 	for scanner.Scan() {
-		pieces := strings.Split(scanner.Text(), "\t")
+		line := scanner.Text()
+		if line == "" {
+			continue
+		}
+		pieces := strings.Split(line, "\t")
 		if s, err := strconv.ParseUint(pieces[0], 10, 32); err != nil {
 			return nil, err
 		} else {
